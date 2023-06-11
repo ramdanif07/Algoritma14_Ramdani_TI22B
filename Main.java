@@ -1,38 +1,46 @@
 public class Main {
-    public static void main(String[] args) {
-      int result1 = sum(10);
-      int result2 = sum2(10);
-      int result3 = sum3(10);
-      
-      System.out.println(result1);
-      System.out.println(result2);
-      System.out.println(result3);
-    }
-    
-    // Fungsi 1 (Increment)
-    public static int sum(int k) {
-      if (k > 0) {
-        return k + sum(k - 1);
-      } else {
-        return 0;
-      }
-    }
-    
-    // Fungsi 2
-    public static int sum2(int k) {
-      if (k > 0) {
-        return k + sum2(k - 1);
-      } else {
-        return 0;
-      }
-    }
-    
-    // Fungsi 3
-    public static int sum3(int k) {
-      if (k > 0) {
-        return k + sum(k - 1);
-      } else {
-        return 0;
-      }
-    }
+  public static void main(String[] args) {
+      // mencari pangkat
+      int hasil = pangkat(2, 4);
+      System.out.println(hasil);
+
+      // hitung mundur
+      // countDown(5);
+
+      // faktorial
+      int faktorial = factorial(4);
+      System.out.println(faktorial);
+
+
   }
+
+  public static int pangkat(int x, int n) {
+      if (n == 0) {
+          return 1;
+      } else {
+          return x * pangkat(x, n - 1);
+      }
+  }
+
+  public static void countDown(int n) {
+      if (n <= 0) {
+          System.out.println("Selesai");
+      } else {
+          try {
+              Thread.sleep(1000);
+              System.out.println(n);
+              countDown(n - 1);
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }
+      }
+  }
+
+  public static int factorial(int n) {
+      if (n == 0 || n == 1) {
+          return 1;
+      } else {
+          return n * factorial(n - 1);
+      }
+  }
+}
